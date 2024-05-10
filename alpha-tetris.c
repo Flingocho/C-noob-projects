@@ -112,6 +112,32 @@ void move_piece(enum Movement movement, char screen[FILAS][COLUMNAS], int *rotat
     //diremos new_screen por legibilidad 
     print_screen(new_screen);
 }
+//entrada por teclado de movimientos
+void seleccionar(char selector, char screen[FILAS][COLUMNAS], int *rotation){
+    
+    scanf(" %c", &selector);
+
+    switch (selector)
+    {
+    case 's':
+        move_piece(DOWN, screen, rotation);
+        break;
+    case 'd':
+        move_piece(RIGHT, screen, rotation);
+        break;
+    case 'a':
+        move_piece(LEFT, screen, rotation);
+        break;
+    case 'w':
+        move_piece(ROTATE, screen, rotation);
+        break;
+    default:
+        printf("movimiento no válido");
+        break;
+    }
+    
+
+}
 //cuerpo principal e inicio del programa
 int main() {
     //pantalla inicial (pieza)
@@ -132,13 +158,18 @@ int main() {
     //puntero de rotation como parámetro para guardar cambios de estado
     int *p_rotation;
     p_rotation = &rotation;
+    //selector para entrada por teclado
+    char selector = 0;
+    //variable para condicion victoria NYI
+    int jugando = 1;
     //print pantalla inicial
     print_screen(screen);
-    //movimientos 
-    //**Implementarlos por teclado en prox version**//
-    move_piece(ROTATE, screen, p_rotation);
-    move_piece(DOWN, screen, p_rotation);
-    move_piece(ROTATE, screen, p_rotation);
-    move_piece(ROTATE, screen, p_rotation);
+    //juego 
+    while(jugando == 1){
+        seleccionar(selector, screen, p_rotation);
+    }
+    
+
+
     return 0;
 }
