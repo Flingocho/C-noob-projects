@@ -1,7 +1,13 @@
 #include <stdio.h>
+#include <conio.h>
+
 //CONSTANTES
 #define FILAS 10
 #define COLUMNAS 10
+
+
+//FUNCIONES EXTERNAS INDEPENDIENTES
+/**************************************************************************/
 //movimientos
 enum Movement {
     DOWN = 1,
@@ -20,6 +26,11 @@ void print_screen(char screen[FILAS][COLUMNAS]) {
         printf("\n");
     }
 }
+/**************************************************************************/
+
+
+//FUNCIONES RELACIONADAS CON EL JUGADOR
+/**************************************************************************/
 //función para mover las piezas
 void move_piece(enum Movement movement, char screen[FILAS][COLUMNAS], int *rotation){
 
@@ -115,7 +126,7 @@ void move_piece(enum Movement movement, char screen[FILAS][COLUMNAS], int *rotat
 //entrada por teclado de movimientos
 void seleccionar(char selector, char screen[FILAS][COLUMNAS], int *rotation){
     
-    scanf(" %c", &selector);
+    selector = getch();
 
     switch (selector)
     {
@@ -138,7 +149,11 @@ void seleccionar(char selector, char screen[FILAS][COLUMNAS], int *rotation){
     
 
 }
-//cuerpo principal e inicio del programa
+
+
+
+//CUERPO PRINCIPAL DEL PROGRAMA
+/**************************************************************************/
 int main() {
     //pantalla inicial (pieza)
     char screen[FILAS][COLUMNAS] = {
