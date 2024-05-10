@@ -149,7 +149,7 @@ void seleccionar(char selector, char screen[FILAS][COLUMNAS], int *rotation){
     
 
 }
-
+/**************************************************************************/
 
 
 //CUERPO PRINCIPAL DEL PROGRAMA
